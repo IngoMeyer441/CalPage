@@ -1,0 +1,1 @@
+extern void write_cal_page(FILE* fi, int year, int month, double width, double height);
