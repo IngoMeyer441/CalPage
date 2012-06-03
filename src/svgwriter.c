@@ -16,9 +16,18 @@ void finish_svg_document(FILE* fi) {
 }
 
 void draw_line(FILE* fi, double x1, double y1, double x2, double y2, int width, char* color) {
-	fprintf(fi, "    <line x1=\"%lf\" y1=\"%lf\" x2=\"%lf\" y2=\"%lf\" stroke=\"%s\" stroke-width=\"%lfpx\" color=\"%s\"/>\n");
+	fprintf(fi, "    <line x1=\"%lfmm\" y1=\"%lfmm\" x2=\"%lfmm\" y2=\"%lfmm\" stroke=\"%s\" stroke-width=\"%dpx\"/>\n",
+			x1, y1, x2, y2, color, width);
 } 
 
-void draw_text(FILE* fi, double x, double y, char* text, int font_size, char* color) {
-	fprintf(fi, "    <text x=\"%lf\" y=\"%lf\" font-size=\"%d\" color=\"%s\">%s</text>\n");
+void draw_text(FILE* fi, double x, double y, char* text, double font_size, char* text_anchor, char* color) {
+	fprintf(fi, "    <text x=\"%lfmm\" y=\"%lfmm\" font-size=\"%lfmm\" text-anchor=\"%s\" font-family=\"sans-serif\" fill=\"%s\">%s</text>\n",
+			x, y, font_size, text_anchor, color, text);
 }
+
+/*
+void draw_textarea(FILE* fi, double x, double y, char* text, double width, double height, char* text_align, char* display_align, double font_size, char* color) {
+	fprintf(fi, "    <textArea x=\"%lfmm\" y=\"%lfmm\" width=\"%lfmm\" height=\"%lfmm\" text-align=\"%s\" display-align=\"%s\" font-size=\"%lfmm\" font-family=\"sans-serif\" fill=\"%s\">%s</textArea>\n",
+			x, y, width, height, text_align, display_align, font_size, color, text);
+}
+*/
