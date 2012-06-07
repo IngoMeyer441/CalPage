@@ -1,0 +1,1 @@
+extern int svg2pdf(const char *svg_filename, const char *pdf_filename);
